@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Shopping Clothes Modern</title>
+    <script src="js/javascript.js"></script>
+    <script src="js/jquery-2.1.1.min.js"></script>
+    <script>
+        var access="http://localhost:8686/rest_data/rest_categorys.json";
+        var http_request=null;
+        function getObject(){
+            if(window.XMLHttpRequest) return new XMLHttpRequest();
+            else if(window.ActiveXObject) return new ActiveXObject("Msxml2.XMLHTTP");
+            else return null;
+        }
+        function check(){
+            http_request=getObject();
+            if(http_request==null){alert("Cannot Open your Browser!!!");return;}
+            http_request.open("GET",access,true);
+            http_request.send();
+            http_request.onreadystatechange=function(){
+                if(http_request.readyState==4){
+                    var objSon=JSON.parse(http_request.responseText);
+                    var pro="";
+                    var t="";
+
+                    for(var i=0;i<objSon.categories.length;i++){
+                       pro=objSon.categories[i].Category.category_name.toString();
+                        t=objSon.categories[i].Category.id.toString();
+                        document.getElementById("test").innerHTML+="<li><a onclick=showProduct("+t+");>"+pro+"</a></li>";
+                        document.getElementById("se").innerHTML+="<option>"+pro+"</option>";
+                    }
+                }
+            }
+        }
+        function showProduct(id){
+           /* var acc="http://localhost:8585/rest_data/rest_categorys/"+id+".json";
+            http_request=getObject();
+            if(http_request==null){alert("Cannot Open your Browser!!!");return;}
+            http_request.open("GET",acc,true);
+            http_request.send();
+            http_request.onreadystatechange=function(){
+                if(http_request.readyState==4){
+                    var obj=JSON.parse(http_request.responseText);
+                    for(var i=0;i<objSon.categories.length;i++){
+                        pro=objSon.categories[i].Category.category_name.toString();
+                        t=objSon.categories[i].Category.id.toString();
+                        document.getElementById("test").innerHTML+="<li><a onclick=showProduct("+t+");>"+pro+"</a></li>";
+                        document.getElementById("se").innerHTML+="<option>"+pro+"</option>";
+                    }
+                }
+            }*/
+            var s="";
+
+            if(id==1){ s="../image/banner/t-shirt.jpg";}
+            if(id==2){ s="../image/banner/skirt01.jpg";}
+            if(id==3){ s="../image/banner/pants.jpg";}
+            if(id==4){ s="../image/banner/trouser.jpg";}
+            if(id==5){ s="../image/banner/jacket.jpg";}
+            if(id==6){ s="../image/banner/trad.jpg";}
+            if(id==7){ s="../image/banner/dress.jpg";}
+            if(id==8){ s="../image/banner/cap.jpg";}
+            document.getElementById("tab").innerHTML="";
+            var table="";
+            for(var i=0;i<4;i++){
+                table+="<tr>";
+                for(var j=0;j<5;j++){
+                     table+="<td><img onclick=goTo() src="+s+"><h5>Name:Bonabala</h5><h5>Price:10$</h5><h5>Description:this product is suitable with...<a href=#>Read more</a><td>";
+
+                }
+                table+="</tr>";
+            }
+            document.getElementById("tab").innerHTML=table;
+            //document.getElementById("tab").innerHTML+="<tr><td><img onclick=goTo() src="+s+"><h5>Name:Bonabala</h5><h5>Price:10$</h5><h5>Description:this product is suitable with...<a href=#>Read more</a></h5></td><td><img src="+s+"><h5>Name:Bonabala</h5><h5>Price:10$</h5><h5>Description:this product is suitable with...<a href=#>Read more</a></h5></td><td><img src="+s+"><h5>Name:Bonabala</h5><h5>Price:10$</h5><h5>Description:this product is suitable with...<a href=#>Read more</a></h5></td><td><img src="+s+"><h5>Name:Bonabala</h5><h5>Price:10$</h5><h5>Description:this product is suitable with...<a href=#>Read more</a></h5></td><td><img src="+s+"><h5>Name:Bonabala</h5><h5>Price:10$</h5><h5>Description:this product is suitable with...<a href=#>Read more</a></h5></td></tr>";
+
+
+
+
+        }
+        function goTo(){location.href="view.html";}
+    </script>
+    <style>
+        @import url(../style/style.css);
+    </style>
+
+</head>
+<body onload="check();showProduct(1);">
+    <div id="container">
+        <div id="header">
+            <div id="hleft"></div>
+        </div>
+        <div id="searchbar">
+            <form>
+
+                <table border-spacing="0px">
+                    <tr border-spacing="0px">
+                <td border-spacing="0px">
+                <select id="se">
+
+                </select></td><td border-spacing="0px">
+                <input type="text"/></td><td border-spacing="0px"><button></button></td></tr>
+                </table>
+            </form>
+        </div>
+        <div id="content">
+            <div id="aside">
+                <div id="nav">
+                    <ul id="test">
+
+                    </ul>
+                </div>
+            </div>
+            <div id="main">
+               <table id="tab">
+
+               </table>
+               <div id="l"> <a href="#"><< Previous</a>
+                <a href="#">Next >></a>
+               </div>
+            </div>
+        </div>
+        <div id="footer"></div>
+    </div>
+
+</body>
+</html>

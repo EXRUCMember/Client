@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Shopping Clothes Modern</title>
+    <script src="js/javascript.js"></script>
+    <script src="js/jquery-2.1.1.min.js"></script>
+    <script>
+        var access="http://localhost:8686/rest_data/rest_categorys.json";
+        var http_request=null;
+        function getObject(){
+            if(window.XMLHttpRequest) return new XMLHttpRequest();
+            else if(window.ActiveXObject) return new ActiveXObject("Msxml2.XMLHTTP");
+            else return null;
+        }
+        function check(){
+            http_request=getObject();
+            if(http_request==null){alert("Cannot Open your Browser!!!");return;}
+            http_request.open("GET",access,true);
+           // http_request.access(access)
+
+            http_request.send();
+            http_request.onreadystatechange=function(){
+                if(http_request.readyState==4){
+                    //alert(http_request.responseText);
+                   var myobjSon=JSON.parse(http_request.responseText);
+                    //alert(http_request.responseXML);
+
+                    var pro="";
+                    var t="";
+
+                    for(var i=0;i<myobjSon.categories.length;i++){
+                       pro=myobjSon.categories[i].Category.category_name.toString();
+                        t=myobjSon.categories[i].Category.id.toString();
+                        document.getElementById("test").innerHTML+="<li><a onclick=showProduct("+t+");>"+pro+"</a></li>";
+                        document.getElementById("se").innerHTML+="<option>"+pro+"</option>";
+                    }
+                }
+            }
+        }
+        function showProduct(id){
+            var acc="http://localhost:8686/rest_data/rest_products/"+id+".json";
+            var http_request1=getObject();
+            if(http_request1==null){alert("Cannot Open your Browser!!!");return;}
+            http_request1.open("GET",acc,true);
+            http_request1.send();
+            //var obj1=JSON.parse(http_request1.responseText);
+            http_request1.onreadystatechange=function(){
+                if(http_request1.readyState==4){
+                    var obj=JSON.parse(http_request1.responseText);
+                    var image="";
+                    var name="";
+                    var price="";
+                    var des="";
+                    var d="";
+                    document.getElementById("tab").innerHTML="";
+                    for(var i=0;i<obj.products.length;i++){
+                       d=obj.products[i].products.id;
+                       image=obj.products[i].products.product_image;
+                       name=obj.products[i].products.product_name;
+                       price=obj.products[i].products.product_price;
+                        des=obj.products[i].products.product_description;
+                        //document.getElementById("test").innerHTML+="<li><a onclick=showProduct("+t+");>"+pro+"</a></li>";
+                       // document.getElementById("se").innerHTML+="<option>"+pro+"</option>";
+                        document.getElementById("tab").innerHTML+="<div><img onclick=goTo("+d+") src="+image+" ><h5>Name:"+name+"</h5><h5>Price:"+price+"</h5><h5>Descr:"+des+"<a href=# onclick=goTo("+d+")>Readmore</a></h5></div>";
+                    }
+                }
+            }
+        }
+        function goTo(id){
+            localStorage.setItem("id", id);
+          // localStorage.name=name;
+           //localStorage.setItem("name", name);
+           //localStorage.setItem("id", price);
+          // localStorage.setItem("dese", des);
+           location.href="view.html";
+
+        }
+
+    </script>
+    <style>
+        @import url(../style/style1.css);
+    </style>
+
+</head>
+<body onload="check();" onload="showProduct();">
+
+    <div id="container">
+        <div id="header">
+            <div id="hleft"></div>
+        </div>
+        <div id="searchbar">
+            <form>
+
+                <table border-spacing="0px">
+                    <tr border-spacing="0px">
+                <td border-spacing="0px">
+                <select id="se">
+
+                </select></td><td border-spacing="0px">
+                <input type="text"/></td><td border-spacing="0px"><button></button></td></tr>
+                </table>
+            </form>
+        </div>
+        <div id="content">
+            <div id="aside">
+                <div id="nav">
+                    <ul id="test">
+
+                    </ul>
+                </div>
+            </div>
+            <div id="main">
+               <div id="tab">
+
+               </div>
+               <div id="l"> <a href="#"><< Previous</a>
+                <a href="#">Next >></a>
+               </div>
+            </div>
+        </div>
+        <div id="footer"></div>
+    </div>
+
+</body>
+</html>

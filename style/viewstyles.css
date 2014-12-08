@@ -1,0 +1,29 @@
+body{
+    margin: 0px;
+}
+.header{
+    width: 100%;
+    height: 150px;
+    background-color: green;
+    margin: 0 auto;
+}
+.aside-left{
+    width: 20%;
+    height: 400px;
+    background-color: yellow;
+    float: left;
+}
+.section{
+    width: 60%;
+    height: 400px;
+    background-color: red;
+    float: left;
+}
+.aside-right{
+    width: 20%;
+    height: 400px;
+}
+.footer{
+    width: 100%;
+    height: 150px;
+}

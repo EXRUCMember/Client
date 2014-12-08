@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+<<<<<<< HEAD
+    <script src="../js/javascript.js"></script>
+    <script src="../js/jquery-2.1.1.min.js"></script>
+=======
+    <script src="js/javascript.js"></script>
+    <script src="js/jquery-2.1.1.min.js"></script>
+>>>>>>> origin/master
+
+    <!--<link rel="stylesheet" type="text/css" href="../style/style.css"/>-->
+    <style type="text/css">
+        @import url(../style/viewstyle.css);
+    </style>
+
+<<<<<<< HEAD
+    <script>
+        function getObject(){
+            if(window.XMLHttpRequest) return new XMLHttpRequest();
+            else if(window.ActiveXObject) return new ActiveXObject("Msxml2.XMLHTTP");
+            else return null;
+        }
+
+        function viewTest(){
+            var id=localStorage.getItem("id");
+            var id=parseInt(id);
+            var accss="http://192.168.1.107/rest_data_site/rest_products/viewPro/"+id+".json";
+            var http_request2=getObject();
+            if(http_request2==null){alert("Cannot Open your Browser!!!");return;}
+            http_request2.open("GET",accss,true);
+            http_request2.send();
+            //var obj1=JSON.parse(http_request1.responseText);
+            http_request2.onreadystatechange=function(){
+                if(http_request2.readyState==4){
+                   var obj=JSON.parse(http_request2.responseText);
+                    var id=obj.product.Product.id;
+                    //alert(id);
+                   var image=obj.product.Product.product_image;
+                    var name=obj.product.Product.product_name;
+
+                    var price=obj.product.Product.product_price;
+                    var des=obj.product.Product.product_description;
+                    document.getElementById("myimage").src=image;
+                    document.getElementById("n").innerHTML=name;
+                    document.getElementById("c").innerHTML=id;
+                    document.getElementById("p").innerHTML=price;
+                    document.getElementById("d").innerHTML=des;
+                    //alert(id);
+                }
+            }
+        }
+    </script>
+
+</head>
+<body onload="viewTest()">
+
+    <div class="header">
+        <img class="img-header" src="../image/banner/banner.png"/>
+=======
+    <!--<script>-->
+        <!--var mypic=new Array("../image/snapback.jpg","../image/2013ERA01930.jpg","../image/1314ERA02365.jpg");-->
+        <!--var i=0;-->
+        <!--function btnprevious(){-->
+            <!--i--;-->
+            <!--if(i<0) i=2;-->
+            <!--document.getElementById("myimage").src=mypic[i];-->
+        <!--}-->
+        <!--function btnnext(){-->
+            <!--i++;-->
+            <!--if(i>9)i=0;-->
+            <!--document.getElementById("myimage").src=mypic[i];-->
+        <!--}-->
+    <!--</script>-->
+
+</head>
+<body>
+
+    <div class="header">
+        <img class="img-header" src="../image/banner.png"/>
+>>>>>>> origin/master
+    </div>
+
+    <div class="aside-left">
+        <!--<div>-->
+            <!--<a href="#">Lady Skirts</a>-->
+        <!--</div>-->
+    </div>
+
+    <div class="section">
+        <div class="section1" align="center">
+            <img class="img-detail" id="myimage" src="../image/2h5jkol.jpg"/>
+        </div>
+        <div class="section2">
+            <div class="subsection">
+                <!--<table>-->
+                    <!--<tr>-->
+                        <!--<td><label><h3>Name: </h3></label></td>-->
+                    <!--</tr>-->
+                    <!--<tr>-->
+                        <!--<td><label><h3>Code: </h3></label></td>-->
+                    <!--</tr>-->
+                    <!--<tr>-->
+                        <!--<td><label><h3>Price: </h3></label></td>-->
+                    <!--</tr>-->
+                    <!--<tr>-->
+                        <!--<td><label><h3>Description:</h3><p>DescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescription</p></label></td>-->
+                    <!--</tr>-->
+                <!--</table>-->
+<<<<<<< HEAD
+                <label><h3>Name:<span id="n"></span> </h3></label>
+                <label><h3>Code: <span id="c"></span></h3></label>
+                <label><h3>Price: <span id="p"></span></h3></label>
+                <label><h3>Description: <span id="d"></span></h3></label>
+=======
+                <label><h3>Name: </h3></label>
+                <label><h3>Code: </h3></label>
+                <label><h3>Price: </h3></label>
+                <label><h3>Description: </h3><p>Description</p></label>
+>>>>>>> origin/master
+            </div>
+        </div>
+        <!--<a href="#" onclick="btnprevious()">First</a>-->
+        <!--<a href="#">1</a>-->
+        <!--<a href="#" onclick="btnnext()">2</a>-->
+        <!--<a href="#" onclick="btnnext()">3</a>-->
+        <!--<a href="#" onclick="btnnext()">Next</a>-->
+    </div>
+
+    <div class="aside-right">
+        <!--<div class="aside-right1">-->
+            <!--<img class="img-aside" src="../image/hot-stylish-fashion-girl-women-usa-flag-t.jpg"/>-->
+        <!--</div>-->
+        <!--<div class="aside-right2">-->
+            <!--<img class="img-aside" src="../image/2013ERA01930.jpg"/>-->
+        <!--</div>-->
+        <!--<div class="aside-right3">-->
+            <!--<img class="img-aside" src="../image/sdp-tshirt.JPG"/>-->
+        <!--</div>-->
+        <!--<div class="aside-right4">-->
+            <!--<img class="img-aside" src="../image/2ne1shirts.jpg"/>-->
+        <!--</div>-->
+    </div>
+
+    <div class="footer">
+
+    </div>
+
+</body>
+</html>

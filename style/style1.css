@@ -1,0 +1,28 @@
+body{margin:0px;background-color:bisque;}
+#container{width:1100px;height:auto;margin:0px auto; background-color:white;}
+#header{width:1100px;height:150px;margin:0px;padding:0px;background-color:darkseagreen;}
+#hleft{width:1100px;height:150px;margin:0px;padding:0px;background-image:url(../image/banner/banner.png);background-size:1100px 150px;}
+#searchbar form{margin:0px;margin-left:800px;}
+#searchbar select{width:100px;height:30px;margin:0px;padding:0px; border-width: 1px;}
+#searchbar select option{font-weight:bold;}
+#searchbar input[type="text"]{width:100px;height:30px;margin:0px;padding:0px; border-width: 1px;margin-top:0px}
+#searchbar button{background-image: url(../image/banner/search.png);width:50px;height:30px;background-size:50px 30px;margin-top:0px;padding:0px;border-width:0px;}
+#searchbar table{margin:0px;padding:0px;border:0px;}
+#searchbar table tr{margin:0px;padding:0px;border:0px;}
+#searchbar table tr td{margin:0px;padding:0px;border:0px;}
+#content{width:1100px;height:auto;margin:0px;padding:0px;clear:both;background-color:white; }
+#aside{width:200px;height:auto;margin:0px;padding:0px;float:left;background-color:white;}
+#aside #nav{}
+#aside #nav ul{}
+#aside #nav ul li{list-style-type: none;margin-bottom:20px;}
+#aside #nav ul li a{text-decoration: none;font-family:"sans-serif";font-size:20px;color:blue;padding:10px 10px;border-width:2px;border-color:coral;}
+#aside #nav ul li a:hover{background-color:gainsboro;border-width:2px;border-color:black;border-top-left-radius:15px;;border-bottom-right-radius:15px;font-style:oblique;color:dodgerblue;}
+#main{float:right;width:900px;height:auto;text-align:center;margin:0px;padding:0px;background-color: darkgrey;display:inline;}
+#main #tab{width:850px;height:auto;margin-right:10px;margin-top:30px;margin-left:25px;}
+#main #tab img{width:140px;height:auto;}
+#main #tab h5{margin:0px;padding:0px;margin-top:0px;}
+/*#main #tab span{padding:0px;margin-top:10px;margin-left:20px;}*/
+#main #tab div{padding:0px;height:auto;margin-left:20px;width:140px;border:0px solid black;float:left;}
+#footer{clear:both;background-color:coral;width:1100px;height:100px;background-color: navajowhite;}
+#main #l a{ margin-left:80px;text-decoration:none;font-weight: bold;}
+#main #l{clear:both;}
